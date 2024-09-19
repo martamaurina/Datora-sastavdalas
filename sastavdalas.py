@@ -25,7 +25,7 @@ btn1.grid(row=5, column=2, padx=0, pady=30)
 
 def pasutijums():
     logs1 = Toplevel()
-    logs1.geometry("350x400")
+    logs1.geometry("380x250")
     logs1.title("Pasūtījums")
     logs1.configure(background = "#FFE1E9")
 
@@ -48,15 +48,27 @@ def pasutijums():
     instrumenti['values']=('Urbis', 'Slīpmašīna', 'Zāģis')
     cena_i['values']=('50', '20', '40')
     
-    darbinieki.grid(column=6, row=1, pady=5)
-    instrumenti.grid(column=6, row=2, pady=5)
-    cena_i.grid(column=6, row=3, pady=5)
-    dienas_i.grid(column=6, row=4, pady=5)
-    
+    darbinieki.grid(column=6, row=1, pady=10, padx=5)
+    instrumenti.grid(column=6, row=2, pady=10, padx=5)
+    cena_i.grid(column=6, row=3, pady=10, padx=5)
+    dienas_i.grid(column=6, row=4, pady=10, padx=5)
 
+    def rezultats():
+        selected_item3=cena_i.get()
+        value=int(dienas_i.get())
+        values={"50":50, "20":20, "40":40} 
+        cena=values[selected_item3]
+        result=value*cena
+        result_label.config(text=f"Result: {result} eiro")
 
+    btn2 = tk.Button(logs1, text="Aprēķina nomas cenu", command=rezultats)
+    btn2.grid(row=7, column=4,pady=10, padx=35)
 
+    result_label=tk.Label(logs1)
+    result_label.grid(row=8, column=4, padx=5)
 
+    btn3=tk.Button(logs1, text="Aizvērt", command=logs1.destroy)
+    btn3.grid(row=7, column=6, pady=5, padx=5)
 
 
 
