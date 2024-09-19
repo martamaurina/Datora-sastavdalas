@@ -70,6 +70,4 @@ def pasutijums():
     btn3=tk.Button(logs1, text="Aizvērt", command=logs1.destroy)
     btn3.grid(row=7, column=6, pady=5, padx=5)
 
-
-
 logs.mainloop()
